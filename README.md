@@ -9,6 +9,7 @@ This repository contains a job application microservices system built with Sprin
     <img src="https://skillicons.dev/icons?i=java,spring,postgres,docker,kubernetes,rabbitmq,aws" />
   </a>
 </p>
+
 ## Microservices Overview
 
 ### 1. **Company Service**
@@ -37,9 +38,6 @@ This repository contains a job application microservices system built with Sprin
 - **Fault Tolerance**: Resilience4J for fault tolerance, circuit breaking, and rate limiting.
 - **Distributed Tracing**: Zipkin integration for monitoring microservice interactions.
 - **Message Queues**: RabbitMQ integration for asynchronous messaging between services.
-
-
-
 - **Spring Boot**: To build the microservices.
 - **Spring Cloud**: For service registry (Eureka), API gateway (Spring Cloud Gateway), and configuration management (Spring Cloud Config).
 - **PostgreSQL**: Database for persisting company, job, and review data.
@@ -49,15 +47,15 @@ This repository contains a job application microservices system built with Sprin
 - **Resilience4J**: For fault tolerance, including circuit breaking and rate limiting.
 - **JPA/H2 Database**: For development and testing environments.
 - **Eureka**: Service registry for inter-service communication.
-- 
+
 ## Prerequisites
 
 - **Java 17** or later
-- **Docker** (For containerization)
-- **PostgreSQL** (Database)
-- **RabbitMQ** (For message queues)
-- **Spring Boot** (For building microservices)
-- **Maven** (For dependency management and building the application)
+- **Docker** 
+- **PostgreSQL** 
+- **RabbitMQ** 
+- **Spring Boot** 
+- **Maven** 
 
 ## Getting Started
 
@@ -69,8 +67,8 @@ cd job-app-microservices
 
 ### Set up Docker and PostgreSQL
 
-Before running the application, ensure you have Docker running on your system. You will also need to set up a PostgreSQL container for the database.
-
+Before running the application, ensure you have Docker running on your system. 
+You will also need to set up a PostgreSQL container for the database.
 To set up PostgreSQL, you can use Docker Compose to create the necessary containers:
 
 docker-compose up

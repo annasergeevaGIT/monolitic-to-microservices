@@ -2,6 +2,13 @@
 
 This repository contains a job application microservices system built with Spring Boot. The system is composed of three microservices: **Company Service**, **Job Service**, and **Review Service**. Each microservice is responsible for handling different aspects of the job application process. These services are designed to work together, with each one providing specific functionality.
 
+## Technologies Used
+
+<p align="center">
+  <a href="https://skillicons.dev">
+    <img src="https://skillicons.dev/icons?i=java,spring,postgres,docker,kubernetes,rabbitmq,aws" />
+  </a>
+</p>
 ## Microservices Overview
 
 ### 1. **Company Service**
@@ -31,7 +38,7 @@ This repository contains a job application microservices system built with Sprin
 - **Distributed Tracing**: Zipkin integration for monitoring microservice interactions.
 - **Message Queues**: RabbitMQ integration for asynchronous messaging between services.
 
-## Technologies Used
+
 
 - **Spring Boot**: To build the microservices.
 - **Spring Cloud**: For service registry (Eureka), API gateway (Spring Cloud Gateway), and configuration management (Spring Cloud Config).

@@ -60,15 +60,17 @@ This repository contains a job application microservices system built with Sprin
 ## Getting Started
 
 ### Clone the Repository
-
+```bash
 git clone https://github.com/yourusername/job-app-microservices.git
 
 cd job-app-microservices
-
+```
 ### Set up Docker and PostgreSQL
 
 Before running the application, ensure you have Docker running on your system. 
 You will also need to set up a PostgreSQL container for the database.
 To set up PostgreSQL, you can use Docker Compose to create the necessary containers:
 
+```bash
 docker-compose up
+```

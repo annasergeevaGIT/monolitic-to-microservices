@@ -8,8 +8,8 @@ import org.springframework.web.client.RestTemplate;
 @Configuration
 public class AppConfig {
 
-    @Bean
-    @LoadBalanced
+    @Bean //not needed using Feign clients
+    @LoadBalanced //not needed using Feign clients
     public RestTemplate restTemplate(){
         return new RestTemplate();
     }

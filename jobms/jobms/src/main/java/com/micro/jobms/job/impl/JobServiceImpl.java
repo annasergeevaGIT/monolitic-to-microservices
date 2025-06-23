@@ -3,6 +3,8 @@ package com.micro.jobms.job.impl;
 import com.micro.jobms.job.Job;
 import com.micro.jobms.job.JobRepository;
 import com.micro.jobms.job.JobService;
+import com.micro.jobms.job.clients.CompanyClient;
+import com.micro.jobms.job.clients.ReviewClient;
 import com.micro.jobms.job.dto.JobDTO;
 import com.micro.jobms.job.external.Company;
 import com.micro.jobms.job.external.Review;
@@ -26,9 +28,13 @@ public class JobServiceImpl implements JobService {
 
     @Autowired
     RestTemplate restTemplate;
+    private CompanyClient companyClient;
+    private ReviewClient reviewClient;
 
-    public JobServiceImpl(JobRepository jobRepository) { //constructor autowired at runtime
+    public JobServiceImpl(JobRepository jobRepository, CompanyClient companyClient, ReviewClient reviewClient) { //constructor autowired at runtime
         this.jobRepository = jobRepository;
+        this.companyClient = companyClient;
+        this.reviewClient = reviewClient;
     }
 
     @Override
@@ -41,16 +47,8 @@ public class JobServiceImpl implements JobService {
     }
     
     private JobDTO convertToDto(Job job) {
-        Company company = restTemplate.getForObject(  //getForObject is useful for a single object
-                "http://COMPANY-SERVICE:8081/companies/" + job.getCompanyId(),
-                Company.class);
-        ResponseEntity<List<Review>> reviewResponse = restTemplate.exchange( // exchange is useful for generic collection
-                "http://REVIEW-SERVICE:8083/reviews?companyId=" + job.getCompanyId(),
-                HttpMethod.GET,
-                null,
-                new ParameterizedTypeReference<List<Review>>() {
-                });
-        List<Review> reviews = reviewResponse.getBody();
+        Company company = companyClient.getCompany(job.getCompanyId()); // Fetch company details using Feign client
+        List<Review> reviews = reviewClient.getReviews(job.getCompanyId()); // Fetch reviews using Feign client
         return JobMapper.mapToJobWithCompanyDTO(job, company, reviews);
     }
 
